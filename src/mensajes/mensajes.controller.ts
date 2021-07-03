@@ -32,11 +32,12 @@ Response.status(HttpStatus.OK). json(mensajesList)
     
 }
 
-@Put(': id')
+@Put(':id')
 update(@Body() updateMensajeDto : CreateMensajeDto,@Res()Response,@Param('id') idMensaje){
 this.mensajesServices.updateMnesaje(idMensaje,updateMensajeDto).then( mensaje =>{
 
-    Response.status(HttpStatus.OK).json(mensaje);
+Response.status(HttpStatus.OK).json(mensaje);
+
 }).catch(()=>{
 
     Response.status(HttpStatus.FORBIDDEN).json ({mensaje:'Error en la edicion del mensaje'})
